@@ -24,6 +24,7 @@ function App() {
         <div className="col-sm-3">
       <SideBarContent productList={responce} 
       rangeChange={(currentRange)=>{changeProfile({...state,range:currentRange})}}
+      dropdownChange={(currentRange)=>{changeProfile({...state,sortOder:currentRange})}}
       change={(el)=>{changeProfile({...state,currentProfile:el})}}/>
       <TopProduct current={state}/>
       </div>

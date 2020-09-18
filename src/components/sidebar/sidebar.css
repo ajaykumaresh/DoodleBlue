@@ -1,9 +1,26 @@
 .sideNavDiv{
     padding: 7px;
+  
+}
+.black{
+    color: black;
+}
+a.font-weight-bold.mb-3.black {
+    text-decoration: none;
 }
 .tagfont{
     font-family:verdana !important;
     text-decoration:underline !important;
     font-weight:bold !important;
     text-decoration: none;
+}
+.fontpropsweight{
+    font-weight: 900;
+}
+.fontpropscenter{
+    text-align: center;
+}
+
+.cardbottom{
+    margin-bottom: 10px;
 }

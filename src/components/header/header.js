@@ -6,7 +6,7 @@ const Header=(props)=>{
    
   
     return (
-      <div className="row" style={{width:"100%",padding: '10px'}}>
+      <div className="row col-sm-12" style={{width:"100%",padding: '10px'}}>
       <>
         <Button variant="primary pull-right" onClick={()=>setShow(true)} >
           Add New Product

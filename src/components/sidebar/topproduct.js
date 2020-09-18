@@ -1,4 +1,5 @@
 import React,{useEffect,useState} from 'react';
+import './sidebar.css'
 import {connect} from 'react-redux';
 const TopProduct=(props)=>{
     let [DisplayData,TobeProcessed]= useState([])
@@ -13,8 +14,9 @@ const TopProduct=(props)=>{
          
        return(
            <div>
+               <p className="fontpropscenter fontpropsweight">Top Products</p>
            {DisplayData.map((el,index)=>{
-               return <div className="card row" key={index}>
+               return <div className="card row cardbottom" key={index}>
                          
                             <img className="card-img-top" style={{height:'120px',width: '100px',padding: '10px'}} src={el.image} alt="displayContent"/>
                            

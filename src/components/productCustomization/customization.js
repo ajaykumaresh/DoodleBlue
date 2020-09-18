@@ -6,7 +6,7 @@ const Customization=(props)=>{
         product:"Comics",
         title:"",
         rate:"",
-        topProduct:"false",
+        topProduct:false,
         image:"",
         Uniqkey:"",
         errors:{
@@ -41,13 +41,12 @@ const Customization=(props)=>{
             
           })
         }
-          console.log(FormData)
         }else{
           TobeProcessed({
             product:"Comics",
             title:"",
             rate:"",
-            topProduct:"false",
+            topProduct:false,
             image:"",
             Uniqkey:key,
             errors:{
@@ -166,7 +165,7 @@ const Customization=(props)=>{
         label='Top Product'
         name="topProduct"
         onChange={(el)=>{changeHandler(el)}}
-        value={FormData.topProduct}
+        checked={FormData.topProduct}
       />
       <br/>
             <Form.Group>
