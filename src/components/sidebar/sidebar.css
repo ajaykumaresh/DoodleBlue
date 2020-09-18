@@ -1,0 +1,9 @@
+.sideNavDiv{
+    padding: 7px;
+}
+.tagfont{
+    font-family:verdana !important;
+    text-decoration:underline !important;
+    font-weight:bold !important;
+    text-decoration: none;
+}
