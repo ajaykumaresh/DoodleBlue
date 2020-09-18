@@ -14,9 +14,9 @@ const TopProduct=(props)=>{
        return(
            <div>
            {DisplayData.map((el,index)=>{
-               return <div className="card" key={index}>
+               return <div className="card row" key={index}>
                          
-                            <img className="card-img-top" src={el.image} alt="displayContent"/>
+                            <img className="card-img-top" style={{height:'120px',width: '100px',padding: '10px'}} src={el.image} alt="displayContent"/>
                            
                                 <div className="card-body">
                                     <p className="card-text"><b>{el.title}</b></p>

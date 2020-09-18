@@ -17,19 +17,46 @@ const Customization=(props)=>{
       
     })
     useEffect(()=>{
-        TobeProcessed({
-          product:"Comics",
-          title:"",
-          rate:"",
-          topProduct:"false",
-          image:"",
-          Uniqkey:"",
-          errors:{
-            titleError:"",
-            rateError:"",
-            imageError:"",
-          }
-        })
+      let key = generateHexString(32)
+        
+        if(props.headerTitle==="Edit Product" && props.filterData){
+          console.log(props.prductbasedkey)
+          const dataBase=props.filterData
+          let selectedData=dataBase.filter(items=>items.Uniqkey===props.prductbasedkey)
+          selectedData=selectedData[0]
+          console.log(selectedData)
+          if(selectedData){
+          TobeProcessed({
+            product:selectedData.product,
+            title:selectedData.title,
+            rate:selectedData.rate,
+            topProduct:selectedData.topProduct,
+            image:selectedData.image,
+            Uniqkey:selectedData.Uniqkey,
+            errors:{
+              titleError:"",
+              rateError:"",
+              imageError:"",
+            }
+            
+          })
+        }
+          console.log(FormData)
+        }else{
+          TobeProcessed({
+            product:"Comics",
+            title:"",
+            rate:"",
+            topProduct:"false",
+            image:"",
+            Uniqkey:key,
+            errors:{
+              titleError:"",
+              rateError:"",
+              imageError:"",
+            }
+          })
+        }
       },[props])
       const changeHandler =  (event)=>{
         let image;
@@ -58,14 +85,16 @@ const Customization=(props)=>{
         }
         return ret.substring(0,length);
       }
-      const onSubmit=()=>{
+      const onSubmit=async()=>{
         let isvalid=validation()
-        let key =generateHexString(32)
-          let state= {...FormData,Uniqkey:key}
-         console.log(state)
-          TobeProcessed(state)
-        if(isvalid){
+        let key =await generateHexString(32)
+        console.log({...FormData,Uniqkey:key})
+          TobeProcessed({...FormData,Uniqkey:key})
           console.log(FormData)
+        if(isvalid && props.headerTitle==="Edit Product"){
+          props.onEditproduct(FormData)
+          props.propertyChange(false)
+        }else if(isvalid){
           props.onaddproduct(FormData)
           props.propertyChange(false)
         } 
@@ -153,7 +182,8 @@ const Customization=(props)=>{
           <Button variant="secondary" onClick={()=>props.propertyChange(false)}>
             Close
           </Button>
-          <Button variant="primary"onClick={onSubmit}>Save</Button>
+          
+          <Button variant="primary"onClick={onSubmit}>{props.headerTitle==="Edit Product" ? 'Update' : 'Save'} </Button>
         </Modal.Footer>
       </Modal>
       </>
@@ -167,7 +197,8 @@ const mapPropsState=state=>{
 const mapPropsDispatchState=dispatch=>{
 
     return {
-        onaddproduct :(val)=>dispatch({type:'ADDPRODUCT',value:val})
+        onaddproduct :(val)=>dispatch({type:'ADDPRODUCT',value:val}),
+        onEditproduct :(val)=>dispatch({type:'UPDATEPRODUCT',value:val})
     }
 }
 
