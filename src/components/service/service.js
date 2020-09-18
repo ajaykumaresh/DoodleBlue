@@ -14,7 +14,7 @@ const CommonDisplayContent=(props)=>{
         if(sortOder==="Price High to Low")fiteredArr.sort((a, b) => b.rate - a.rate); // For ascending sort
         else if(sortOder==="Price Low to High")fiteredArr.sort((a, b) => a.rate - b.rate); // For descending sort      
         TobeProcessed(fiteredArr)
-        console.log(props.childElement.current)
+       // console.log(props.childElement.current)
          },[props])
          const currentselected=(el)=>{
            
@@ -48,7 +48,7 @@ const CommonDisplayContent=(props)=>{
        )
    }
 const mapPropsState=state=>{
-    console.log(state)
+    //console.log(state)
     return{
         filterData:state
     }

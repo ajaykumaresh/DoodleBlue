@@ -20,11 +20,11 @@ const Customization=(props)=>{
       let key = generateHexString(32)
         
         if(props.headerTitle==="Edit Product" && props.filterData){
-          console.log(props.prductbasedkey)
+        //  console.log(props.prductbasedkey)
           const dataBase=props.filterData
           let selectedData=dataBase.filter(items=>items.Uniqkey===props.prductbasedkey)
           selectedData=selectedData[0]
-          console.log(selectedData)
+         // console.log(selectedData)
           if(selectedData){
           TobeProcessed({
             product:selectedData.product,
@@ -87,9 +87,9 @@ const Customization=(props)=>{
       const onSubmit=async()=>{
         let isvalid=validation()
         let key =await generateHexString(32)
-        console.log({...FormData,Uniqkey:key})
+        //console.log({...FormData,Uniqkey:key})
           TobeProcessed({...FormData,Uniqkey:key})
-          console.log(FormData)
+         // console.log(FormData)
         if(isvalid && props.headerTitle==="Edit Product"){
           props.onEditproduct(FormData)
           props.propertyChange(false)
@@ -140,7 +140,7 @@ const Customization=(props)=>{
         <Modal.Body>
         <Form>
         <Form.Group controlId="exampleForm.ControlSelect1">
-    <Form.Label>Category</Form.Label>
+    <Form.Label>Category *</Form.Label>
     <Form.Control as="select" name="product" value={FormData.product} onChange={(el)=>{changeHandler(el)}}>
     <option >Comics</option>
     <option >Games</option>
@@ -148,14 +148,14 @@ const Customization=(props)=>{
     </Form.Control>
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Title</Form.Label>
+    <Form.Label>Title *</Form.Label>
     <Form.Control type="text" name="title" value={FormData.title} onChange={(el)=>{changeHandler(el)}}/>
-    {FormData.errors.titleError?<label style={{color:'red'}}>{FormData.errors.titleError}</label>:null}
+    {FormData.errors.titleError?<label style={{color:'red',fontSize: 'smaller'}}>{FormData.errors.titleError}</label>:null}
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlInput1">
-    <Form.Label>Price</Form.Label>
+    <Form.Label>Price *</Form.Label>
     <Form.Control type="number"  name="rate" value={FormData.rate} onChange={(el)=>{changeHandler(el)}}/>
-    {FormData.errors.rateError?<label style={{color:'red'}}>{FormData.errors.rateError}</label>:null}
+    {FormData.errors.rateError?<label style={{color:'red',fontSize: 'smaller'}}>{FormData.errors.rateError}</label>:null}
   </Form.Group>
 
 
@@ -171,9 +171,9 @@ const Customization=(props)=>{
             <Form.Group>
                     <Form.File id="exampleFormControlFile1"  name='image' onChange={(el)=>{changeHandler(el)}}/>
                    <div styles="height:60px">
-                    <img src={FormData.image}  style={{height:'65px'}}  alt="Upload Images"/>
+                    <img src={FormData.image}  style={{height:'65px'}}  alt="Upload Images *"/>
                     </div>
-                    {FormData.errors.imageError?<label style={{color:'red'}}>{FormData.errors.imageError}</label>:null}
+                    {FormData.errors.imageError?<label style={{color:'red',fontSize: 'smaller'}}>{FormData.errors.imageError}</label>:null}
             </Form.Group>
         </Form>
         </Modal.Body>

@@ -1,7 +1,7 @@
 import json from '../components/localData.json';
 
 const reducer= (state=json.responce,action)=>{
-    console.log(action)
+  //  console.log(action)
     switch(action.type){
         
         case 'ADDPRODUCT': 

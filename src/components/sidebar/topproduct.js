@@ -9,7 +9,7 @@ const TopProduct=(props)=>{
         let fiteredArr=currentProfile==="ALL Category"?responce.filter(items=> items.topProduct):responce.filter(items=>items.product===currentProfile &&items.topProduct);      
         fiteredArr=fiteredArr.length<=3?fiteredArr:fiteredArr.slice(0, 3);
         TobeProcessed(fiteredArr)
-        console.log(fiteredArr)
+       // console.log(fiteredArr)
          },[props])
          
        return(
@@ -31,7 +31,7 @@ const TopProduct=(props)=>{
        )
    }
 const mapPropsState=state=>{
-    console.log(state)
+  //  console.log(state)
     return{
         filterData:state
     }
