@@ -7,7 +7,7 @@ const reducer= (state=json.responce,action)=>{
         case 'ADDPRODUCT': 
         let addCotent=action.value
         addCotent.rate=Number(addCotent.rate)
-        return [...state,addCotent];
+        return [addCotent,...state];
 
         case 'UPDATEPRODUCT':
             let currentState=[...state]

@@ -13,16 +13,16 @@ const TopProduct=(props)=>{
          },[props])
          
        return(
-           <div>
-               <p className="fontpropscenter fontpropsweight">Top Products</p>
+        <div className="topProduct mt-5">
+               <p className="fontpropscenter text-sm font-weight-bold text-left text-secondary">Top Products</p>
            {DisplayData.map((el,index)=>{
-               return <div className="card row cardbottom" key={index}>
-                         
+               return <div className="card cardbottom" key={index}>
+                            <div className="card-img">
                             <img className="card-img-top" style={{height:'120px',width: '100px',padding: '10px'}} src={el.image} alt="displayContent"/>
-                           
-                                <div className="card-body">
-                                    <p className="card-text"><b>{el.title}</b></p>
-                                    <div><b>${el.rate}</b></div>
+                            </div>
+                                <div className="card-body p-0">
+                                    <p className="card-text mb-0"><b>{el.title}</b></p>
+                                    <div className="text-sm">${el.rate}</div>
                                </div>
                            </div>
                  
